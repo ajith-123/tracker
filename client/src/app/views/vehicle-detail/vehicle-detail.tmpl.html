@@ -1,0 +1,80 @@
+
+<div style="width:400px">
+    <canvas id="myChart" width="300" height="300" style="display:none"></canvas>
+    <div id="viewMap" width="300" height="300" style="display:none">
+
+
+        <ng-map  zoom="4">
+            <marker ng-repeat="loc in vehicleDetailVm.geo track by $index" position="{{loc.latitude}}, {{loc.longitude}}" id="custom-marker-{{$index}}"></marker>
+        </ng-map>
+
+        <p></p>
+
+    </div>
+</div>
+
+
+<script type="text/ng-template" id="add-car-form">
+
+    <form ng-submit="vehicleDetailVm.addCar()" name="vehicleForm" novalidate>
+        <div class="form-group">
+            <label>Signal</label>
+            <select ng-model="vehicleDetailVm.searchSignal">
+                <option ng-repeat = "x in vehicleDetailVm.signal">{{x}}</option>
+            </select>
+            <label>Interval</label>
+            <input type="number" placeholder="Time" ng-model="vehicleDetailVm.searchTime"/>
+            <select ng-model="vehicleDetailVm.searchInterval">
+                <option ng-repeat = "x in vehicleDetailVm.interval">{{x}}</option>
+            </select>
+            <br>
+
+        </div>
+        <br>
+        <br>
+
+    </form>
+</script>
+
+
+
+<div class="col-sm-4" ng-include="'add-car-form'">
+</div>
+
+
+
+
+
+
+
+
+<button ng-click="vehicleDetailVm.viewMap()">View GeoLocations</button>
+
+<table class = "table table-striped" >
+    <thead>
+    <tr>
+
+        <th>Message</th>
+        <th>Priority</th>
+        <th>TimeStamp</th>
+
+
+
+
+    </tr>
+
+
+    </thead>
+
+    <tbody>
+    <tr ng-repeat ="alert in vehicleDetailVm.alerts"  >
+
+        <td>{{alert.message}}</td>
+        <td>{{alert.priority}}   </td>
+        <td>{{alert.timeStamp}}</td>
+    </tr>
+    </tbody>
+
+
+</table>
+

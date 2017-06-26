@@ -1,0 +1,35 @@
+
+
+
+<table class = "table table-striped" >
+    <thead>
+    <tr>
+        <th>VIN</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th ng-click="carVm.sorter.sortBy='year';carVm.sorter.reverse=!carVm.sorter.reverse;">Year    </th>
+        <th>redLineRpm</th>
+        <th>maxFuelVol</th>
+        <th>HighAlerts within last 2 hours</th>
+
+
+
+    </tr>
+
+
+    </thead>
+
+    <tbody>
+    <tr ng-repeat ="user in carVm.users| filter:carTrack.search|orderBy:carVm.sorter.sortBy:carVm.sorter.reverse"  >
+        <td><a ng-href="#/vehicles/{{user.vin}}"> {{user.vin}}</a></td>
+        <td>{{user.make}}</td>
+        <td>{{user.model}}</td>
+        <td>{{user.year}}   </td>
+        <td>{{user.redlineRpm}}</td>
+        <td>{{user.maxFuelVolume}}</td>
+        <td>{{carVm.alerts[user.vin]}}</td>
+    </tr>
+    </tbody>
+
+
+</table>

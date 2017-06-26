@@ -1,0 +1,30 @@
+{
+  "name": "ui-seed",
+  "description": "ui-seed project car tracker ui project",
+  "authors": [
+    "anayak"
+  ],
+  "license": "ISC",
+  "homepage": "http://learn.egen.io",
+  "private": true,
+  "dependencies": {
+
+      "chart.js": "^2.6.0",
+    "angular": "^1.4.14",
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+"angular-route": "^1.4.14",
+    "ngmap": "^1.4.14"
+
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css"
+      ]
+    },
+    "jquery": {
+      "main": []
+    }
+  }
+}
